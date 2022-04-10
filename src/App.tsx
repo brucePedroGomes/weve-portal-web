@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Connect } from "./components/Connect";
+import { Wave } from "./components/Wave";
 
 export const App = () => (
    <ChakraProvider theme={theme}>
@@ -19,7 +20,7 @@ export const App = () => (
          <VStack spacing={8}>
             <Text>Wave portal</Text>
             <Connect />
-            <Button>Wave Me</Button>
+            <Wave />
          </VStack>
       </Box>
    </ChakraProvider>

@@ -20,7 +20,5 @@ export async function isConnected(): Promise<string> {
 
    const accounts = await ethereum.request({ method: "eth_accounts" });
 
-   const account = accounts?.[0];
-
-   return account;
+   return accounts?.[0] ?? "";
 }
