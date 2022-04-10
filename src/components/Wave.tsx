@@ -1,18 +1,22 @@
-import { Button, Stack } from "@chakra-ui/react";
+import { Button, Textarea, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { wave, waveCount } from "../contract/wave";
+import { wave } from "../contract/wave";
 
 export function Wave() {
-   const [count, setCount] = useState(0);
+   const [message, setMessage] = useState("");
 
-   function handleCount() {
-      waveCount().then((res) => setCount(res));
+   function handleWave() {
+      if (message) {
+         wave(message);
+      }
    }
 
    return (
-      <Stack>
-         <Button onClick={wave}>Wave me!</Button>;
-         <Button onClick={handleCount}>Count {count}</Button>
-      </Stack>
+      <VStack w="full" maxW="container.sm" spacing="8">
+         <Textarea
+            onChange={(event) => setMessage(event.currentTarget.value)}
+         />
+         <Button onClick={handleWave}>Wave me!</Button>;
+      </VStack>
    );
 }
